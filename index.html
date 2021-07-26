@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML,CSS and JS">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="60">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::before,*::after{
+            box-sizing: border-box;
+        }
+        body{
+            background: lightsteelblue;
+        }
+        .heading{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align:center;
+            padding: 2rem;
+            border-radius: 2rem;
+            background: linear-gradient(90deg, rgba(10,139,252,0.3) 0%, rgba(221,148,233,0.3) 100%);
+            box-shadow: 1px 1px 10px grey;
+            color: darkblue;
+            letter-spacing: 0.3rem;
+        }
+        .plan{
+            padding:5rem;
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .plan-child{
+            border-radius: 10px;
+            padding:1rem;
+        }
+        .second{
+            padding: 2rem;
+            box-shadow: 1px 1px 5px black;
+            letter-spacing: 1px;
+            text-align:center;
+            background: linear-gradient(90deg, rgba(10,226,252,0.3) 0%, rgba(233,168,148,0.5) 100%);
+        }
+        input[type=number]{
+            text-align: center;
+            padding:1rem;
+            border-radius: 10px;
+            outline:none;
+            border:0;
+            border:1px solid darkviolet;
+        }
+        input[type=number]:focus{
+            border-color: red;
+        }
+        .rules{
+            list-style-image: url('images/tick.svg');
+        }
+        .btn{
+            padding:0.5rem;
+            margin:1rem;
+            border:0;
+            color:red;
+            border-radius:5px;
+            background: darkgrey;
+            cursor: pointer;
+            width:20fr;
+        }
+        .heading2{
+            font-family: Arial, Helvetica, sans-serif;
+            color:purple;
+        }
+        .rules-points{
+            padding:0.5rem;
+        }
+        .btn:hover{
+            background: #000;
+        }
+        #result{
+            padding: 1rem;
+            text-align:center;
+            font-size: 1.2rem;
+            color:green;
+        }
+        .heading3{
+            color:red;
+        }
+        @media screen and (min-width:515px) and (max-width:830px){
+            .plan{
+                padding: 2.5rem;
+                flex-direction: column;
+            }
+            .heading{
+                font-size: 1.5rem;
+            }
+            .heading2{
+                font-size: 1.2rem;
+            }
+            .heading3{
+                font-size: 0.9rem;
+            }
+        }
+        @media screen and (min-width:100px) and (max-width:514px){
+            .plan{
+                padding: 1rem;
+                flex-direction: column;
+            }
+            .heading{
+                text-align:center;
+                font-size: 1.2rem;
+            }
+            .heading2{
+                font-size: 0.9rem;
+            }
+            .heading3{
+                font-size: 0.6rem;
+                margin-top:1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+       let random = Math.ceil(Math.random()*100);
+       function display(){
+            let input = document.getElementById('number').value;
+            console.log(input);
+            let result = parseInt(input);
+            if(input === "" || result > 100)
+               document.getElementById('result').innerHTML = '<span style="color:red">Your number is invalid, please give valid number</span>';
+            else if(result === random)
+              document.getElementById('result').innerHTML = '<span style="color:green">You got the number</span>';
+            else if(result > random)
+              document.getElementById('result').innerHTML = '<span style="color:red">Your number is greater than that the number, try again!</span>';
+            else
+              document.getElementById('result').innerHTML = '<span style="color:red">You number is lesser than that the number, try again!</span>';
+            return false;
+        }
+    </script>
+    <h1 class="heading">NUMBER GUESSING GAME</h1>
+    <div class="plan">
+        <div class="plan-child first">
+             <h2 class="heading2"> INSTRUCTIONS:</h2>
+             <ul class="rules">
+                 <li class="rules-points one">Insert your guess and 'CHECK'</li>
+                 <li class="rules-points two">You will get hunts at the button</li>
+                 <li class="rules-points three">Based on the hunts,try another guess and 'CHECK'</li>
+                 <li class="rules-points four">You should find the number within one minute, otherwise page will be refreshed</li>
+                 <li class="rules-points five">ALL THE BEST!</li>
+             </ul>
+        </div>
+        <div class="plan-child second">
+            <h2 class="heading2">GUESS THE NUMBER BETWEEN 1 TO 100</h2>
+            <h3 class="heading3">ENTER THE NUMBER BELOW</h3>
+            <form onsubmit="return display()">
+               <input type="number" name="number" id="number" placeholder="Enter Here"><br>
+               <button type="submit" class="btn">Start</button>
+            </form>
+            <div id="result">Let's Start</div>
+        </div>
+    </div>
+</body>
+</html>
