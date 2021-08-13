@@ -121,19 +121,23 @@
 <body>
     <script>
        let random = Math.ceil(Math.random()*100);
+       let start = new Date();
        function display(){
             let input = document.getElementById('number').value;
             console.log(input);
             let result = parseInt(input);
+            let end = new Date();
+            let sec = Math.ceil((end.getTime()-start.getTime())/1000);
             if(input === "" || result > 100)
-               document.getElementById('result').innerHTML = '<span style="color:red">Your number is invalid, please give valid number</span>';
+               document.getElementById('result').innerHTML = `<span style="color:red">Your number is invalid, please give valid number. You have only ${60-sec} seconds left</span>`;
             else if(result === random)
-              document.getElementById('result').innerHTML = '<span style="color:green">You got the number</span>';
+              document.getElementById('result').innerHTML = `<span style="color:green">You got the number. You found the number in ${sec} seconds</span>`;
             else if(result > random)
-              document.getElementById('result').innerHTML = '<span style="color:red">Your number is greater than that the number, try again!</span>';
+              document.getElementById('result').innerHTML = `<span style="color:red">Your number is greater than that the number, try again!. You have only ${60-sec} seconds left</span>`;
             else
-              document.getElementById('result').innerHTML = '<span style="color:red">You number is lesser than that the number, try again!</span>';
+              document.getElementById('result').innerHTML = `<span style="color:red">You number is lesser than that the number, try again!. You have only ${60-sec} seconds left</span>`;
             return false;
+        }
         }
     </script>
     <h1 class="heading">NUMBER GUESSING GAME</h1>
