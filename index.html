@@ -131,7 +131,7 @@
             let end = new Date();
             let sec = Math.ceil((end.getTime()-start.getTime())/1000);
             if(count > 0)
-                btn.innerHTML = 'Try';
+                btn.value = 'Try';
             if(input === "" || result > 100 || result < 0)
                document.getElementById('result').innerHTML = `<span style="color:red">Your number is invalid, please give valid number. You have only ${60-sec} seconds left</span>`;
             else if(result === random)
@@ -141,6 +141,7 @@
             else
               document.getElementById('result').innerHTML = `<span style="color:red">The number you guessed is <strong>lesser than</strong> actual number, try again!. You have only ${60-sec} seconds left</span>`;
             count++;
+            console.log(count);
             return false;
        }
     </script>
