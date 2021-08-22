@@ -129,7 +129,7 @@
             let result = parseInt(input);
             let end = new Date();
             let sec = Math.ceil((end.getTime()-start.getTime())/1000);
-            btn.value = 'Try';
+            btn.firstChild = 'Try';
             if(input === "" || result > 100 || result < 0)
                document.getElementById('result').innerHTML = `<span style="color:red">Your number is invalid, please give valid number. You have only ${60-sec} seconds left</span>`;
             else if(result === random)
