@@ -122,7 +122,6 @@
     <script>
        let random = Math.ceil(Math.random()*100);
        let start = new Date();
-       let count =0;
        function display(){
             let input = document.getElementById('number').value;
             let btn = document.querySelector('.btn');
@@ -130,8 +129,7 @@
             let result = parseInt(input);
             let end = new Date();
             let sec = Math.ceil((end.getTime()-start.getTime())/1000);
-            if(count >=0)
-                btn.value = 'Try';
+            
             if(input === "" || result > 100 || result < 0)
                document.getElementById('result').innerHTML = `<span style="color:red">Your number is invalid, please give valid number. You have only ${60-sec} seconds left</span>`;
             else if(result === random)
@@ -140,7 +138,7 @@
               document.getElementById('result').innerHTML = `<span style="color:red">The number you guessed is <strong>greater than</strong> actual number,try again!. You have only ${60-sec} seconds left</span>`;
             else
               document.getElementById('result').innerHTML = `<span style="color:red">The number you guessed is <strong>lesser than</strong> actual number, try again!. You have only ${60-sec} seconds left</span>`;
-            count++;
+            btn.value = 'try';
             return false;
        }
     </script>
