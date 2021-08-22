@@ -129,7 +129,6 @@
             let result = parseInt(input);
             let end = new Date();
             let sec = Math.ceil((end.getTime()-start.getTime())/1000);
-            
             if(input === "" || result > 100 || result < 0)
                document.getElementById('result').innerHTML = `<span style="color:red">Your number is invalid, please give valid number. You have only ${60-sec} seconds left</span>`;
             else if(result === random)
@@ -138,8 +137,8 @@
               document.getElementById('result').innerHTML = `<span style="color:red">The number you guessed is <strong>greater than</strong> actual number,try again!. You have only ${60-sec} seconds left</span>`;
             else
               document.getElementById('result').innerHTML = `<span style="color:red">The number you guessed is <strong>lesser than</strong> actual number, try again!. You have only ${60-sec} seconds left</span>`;
-            btn.value = 'try';
-            return false;
+            btn.innerHTML = 'Try';
+           return false;
        }
     </script>
     <h1 class="heading">NUMBER GUESSING GAME</h1>
