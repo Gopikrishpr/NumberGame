@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Index</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         *,*::before,*::after{
             box-sizing: border-box;
@@ -141,9 +142,9 @@
            return false;
        }
     </script>
-    <h1 class="heading">NUMBER GUESSING GAME</h1>
+    <h1 class="heading" data-aos="fade-down">NUMBER GUESSING GAME</h1>
     <div class="plan">
-        <div class="plan-child first">
+        <div class="plan-child first" data-aos="fade-right">
              <h2 class="heading2"> INSTRUCTIONS:</h2>
              <ul class="rules">
                  <li class="rules-points one">Insert your guess and 'CHECK'</li>
@@ -153,7 +154,7 @@
                  <li class="rules-points five">ALL THE BEST!</li>
              </ul>
         </div>
-        <div class="plan-child second">
+        <div class="plan-child second" data-aos="fade-left">
             <h2 class="heading2">GUESS THE NUMBER BETWEEN 1 TO 100</h2>
             <h3 class="heading3">ENTER THE NUMBER BELOW</h3>
             <form onsubmit="return display()">
@@ -163,5 +164,9 @@
             <div id="result">Let's Start</div>
         </div>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
